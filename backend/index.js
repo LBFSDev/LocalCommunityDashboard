@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const { graphqlHTTP } = require("express-graphql");
 const { buildSchema } = require("graphql");
@@ -268,7 +270,7 @@ function auth(context) {
 const bcrypt = require("bcrypt");
 
 
-require("dotenv").config();
+// require("dotenv").config();
 
 console.log(process.env.JWT_SECRET);
 // Resolvers
