@@ -221,7 +221,7 @@ type DeleteResponse {
 const app = express();
   // const allowedorigin=["http://localhost:5173", // React app for local host 
   //   "http://localhost:3000"];
-  const allowedorigin=["https://local-community-dashboard.vercel.app"];
+  // const allowedorigin=["https://local-community-dashboard.vercel.app"];
 // app.use(cors({
 // origin :allowedorigin,
 //   credentials: true
@@ -232,9 +232,9 @@ const app = express();
 //   credentials: true,
 // };
 
-// const allowedOrigins = [
-//   "https://local-community-dashboard.vercel.app"
-// ];
+const allowedOrigins = [
+  "https://local-community-dashboard.vercel.app"
+];
 
 const corsOptions = {
   origin: function (origin, callback) {
@@ -275,7 +275,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: allowedorigin,
+    origin: allowedOrigin,
     credentials: true
   }
 });
