@@ -174,7 +174,7 @@ const sender = localStorage.getItem("email");
       
       
           try {
-            const res = await fetch('https://local-community-dashboard.vercel.app', {
+            const res = await fetch('https://localcommunitydashboard.onrender.com/graphql', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json',...authHeader },
               body: JSON.stringify(graphqlQuery),
@@ -279,7 +279,7 @@ const sender = localStorage.getItem("email");
       
       
           try {
-            const res = await fetch('https://local-community-dashboard.vercel.app', {
+            const res = await fetch('https://localcommunitydashboard.onrender.com/graphql', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json',...authHeader },
               body: JSON.stringify(graphqlQuery),
@@ -499,7 +499,7 @@ async function sendmessage(message , receiver){
       
       
           try {
-            const res = await fetch('https://local-community-dashboard.vercel.app', {
+            const res = await fetch('https://localcommunitydashboard.onrender.com/graphql', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json',...authHeader },
               body: JSON.stringify(graphqlQuery),
@@ -555,7 +555,7 @@ const [socket, setSocket] = useState(null);
 
 useEffect(() => {
   //since you cannot use const socket = io("http://localhost:4000"); this each time create socket on every render
-  const newSocket = io("https://local-community-dashboard.vercel.app");
+  const newSocket = io("https://localcommunitydashboard.onrender.com");
   setSocket(newSocket);
 
   return () => newSocket.disconnect(); //when unmount (close window which means close connection) we disconnect socket
@@ -707,7 +707,7 @@ const navigate = useNavigate();
   
   
       try {
-        const res = await fetch('https://local-community-dashboard.vercel.app', {
+        const res = await fetch('https://localcommunitydashboard.onrender.com/graphql', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json',...authHeader},
           body: JSON.stringify(graphqlQuery),
