@@ -827,8 +827,9 @@ const token = jwt.sign(
     // If email not found in either table
     return { role: null, message: "User not found",token:null };
   }catch(err){
+      console.log(err);
     throw new Error("something is wrong!");
-    console.log(err);
+    // console.log(err);
   }
   },
 
