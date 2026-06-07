@@ -227,11 +227,17 @@ const app = express();
 //   credentials: true
 // }));
 
-const corsOptions = {
-  origin: "https://local-community-dashboard.vercel.app",
-  credentials: true,
-};
+// const corsOptions = {
+//   origin: "https://local-community-dashboard.vercel.app",
+//   credentials: true,
+// };
 
+const corsOptions = {
+  origin: allowedOrigin,
+  credentials: true,
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
 app.use(cors(corsOptions));
 app.options("*", cors(corsOptions));
 
