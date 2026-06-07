@@ -37,7 +37,7 @@ const DateTime = new GraphQLScalarType({
 });
 
 
-// PostgreSQL connection works only on local host not deployment
+// PostgreSQL connection
 // const pool = new Pool({
 //   user: "postgres",
 //   host: "localhost",
@@ -45,13 +45,11 @@ const DateTime = new GraphQLScalarType({
 //   password: "password",
 //   port: 5432,
 // });
-
-//connection string from neon 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
-    rejectUnauthorized: false,
-  },
+    rejectUnauthorized: false
+  }
 });
 
 // GraphQL schema
@@ -210,66 +208,14 @@ type DeleteResponse {
 
 `);
 
-// import cors from "cors";
-
-// app.use(
-//   cors({
-//     origin: "https://your-project.vercel.app",
-//     credentials: true,
-//   })
-// );
 const app = express();
-  // const allowedorigin=["http://localhost:5173", // React app for local host 
-  //   "http://localhost:3000"];
-  // const allowedorigin=["https://local-community-dashboard.vercel.app"];
-// app.use(cors({
-// origin :allowedorigin,
-//   credentials: true
-// }));
-
-// const corsOptions = {
-//   origin: "https://local-community-dashboard.vercel.app",
-//   credentials: true,
-// };
-
-const allowedOrigins = [
-  "http://localhost:5173",
-  "http://localhost:3000",
-  "https://local-community-dashboard.vercel.app"
-];
-
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin) return callback(null, true);
-
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    }
-
-    console.log("Blocked CORS origin:", origin);
-    return callback(null, false); // IMPORTANT: do NOT throw error
-  },
-  credentials: true,
-  methods: ["GET", "POST", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-};
-
-app.use(cors(corsOptions));
-
-app.use(cors(corsOptions));
-// app.options("*", cors(corsOptions));
-app.options(/.*/, cors(corsOptions));
-
-
-
-// const corsOptions = {
-//   origin: allowedOrigin,
-//   credentials: true,
-//   methods: ["GET", "POST", "OPTIONS"],
-//   allowedHeaders: ["Content-Type", "Authorization"],
-// };
-// app.use(cors(corsOptions));
-// app.options("*", cors(corsOptions));
+  const allowedorigin=["http://localhost:5173", // React app
+    "http://localhost:3000",
+  "https://local-community-dashboard.vercel.app"];
+app.use(cors({
+origin :allowedorigin,
+  credentials: true
+}));
 
 
 
@@ -284,7 +230,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: allowedOrigins,
+    origin: allowedorigin,
     credentials: true
   }
 });
@@ -863,9 +809,8 @@ const token = jwt.sign(
     // If email not found in either table
     return { role: null, message: "User not found",token:null };
   }catch(err){
-      console.log(err);
-    throw new Error("something is wrong!"+err.message);
-    // console.log(err);
+    throw new Error("something is wrong!");
+    console.log(err);
   }
   },
 
@@ -917,6 +862,7 @@ app.use(
 // server.listen(4000, () => {
 //    console.log("🚀 Server running at http://localhost:4000/graphql");
 // });
+
 const PORT = process.env.PORT || 4000;
 
 server.listen(PORT, () => {
