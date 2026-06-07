@@ -153,7 +153,7 @@ async function CreateReq(e){
     `;
 
     try {
-      const response = await fetch("http://localhost:4000/graphql", {
+      const response = await fetch("https://localcommunitydashboard.onrender.com/graphql", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",...authHeader
