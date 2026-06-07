@@ -828,7 +828,7 @@ const token = jwt.sign(
     return { role: null, message: "User not found",token:null };
   }catch(err){
       console.log(err);
-    throw new Error("something is wrong!"+err);
+    throw new Error("something is wrong!"+err.message);
     // console.log(err);
   }
   },
