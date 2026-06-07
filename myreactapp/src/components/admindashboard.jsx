@@ -102,7 +102,7 @@ const authHeader = token && token !== "undefined"
           
           
               try {
-                const res = await fetch('http://localhost:4000/graphql', {
+                const res = await fetch('https://local-community-dashboard.vercel.app', {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json',...authHeader },
                   body: JSON.stringify(graphqlQuery),
@@ -147,7 +147,7 @@ const authHeader = token && token !== "undefined"
     
     
         try {
-          const res = await fetch('http://localhost:4000/graphql', {
+          const res = await fetch('https://local-community-dashboard.vercel.app', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json',...authHeader },
             body: JSON.stringify(graphqlQuery),
@@ -193,7 +193,7 @@ const authHeader = token && token !== "undefined"
     
     
         try {
-          const res = await fetch('http://localhost:4000/graphql', {
+          const res = await fetch('https://local-community-dashboard.vercel.app', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json',...authHeader },
             body: JSON.stringify(graphqlQuery),
@@ -233,7 +233,7 @@ const authHeader = token && token !== "undefined"
     
     
         try {
-          const res = await fetch('http://localhost:4000/graphql', {
+          const res = await fetch('https://local-community-dashboard.vercel.app', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json',...authHeader },
             body: JSON.stringify(graphqlQuery),
@@ -343,7 +343,7 @@ event.preventDefault();
           };
       
           try {
-            const res = await fetch('http://localhost:4000/graphql', {
+            const res = await fetch('https://local-community-dashboard.vercel.app', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json',...authHeader },
               body: JSON.stringify(graphqlQuery),
@@ -399,7 +399,7 @@ event.preventDefault();
       
       
           try {
-            const res = await fetch('http://localhost:4000/graphql', {
+            const res = await fetch('https://local-community-dashboard.vercel.app', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' ,...authHeader},
               body: JSON.stringify(graphqlQuery),
@@ -522,7 +522,7 @@ const [socket, setSocket] = useState(null);
 
 useEffect(() => {
   //since you cannot use const socket = io("http://localhost:4000"); this each time create socket on every render
-  const newSocket = io("http://localhost:4000");
+  const newSocket = io("https://local-community-dashboard.vercel.app");
   setSocket(newSocket);
 
   return () => newSocket.disconnect(); //when unmount (close window which means close connection) we disconnect socket
@@ -784,7 +784,7 @@ const [Sendto , setSendto] = useState("");
     
     
         try {
-          const res = await fetch('http://localhost:4000/graphql', {
+          const res = await fetch('https://local-community-dashboard.vercel.app', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json',...authHeader },
             body: JSON.stringify(graphqlQuery),
