@@ -232,14 +232,35 @@ const app = express();
 //   credentials: true,
 // };
 
+const allowedOrigins = [
+  "https://local-community-dashboard.vercel.app"
+];
+
 const corsOptions = {
-  origin: allowedOrigin,
+  origin: function (origin, callback) {
+    // allow requests with no origin (like Postman)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true,
-  methods: ["GET", "POST", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
 };
+
 app.use(cors(corsOptions));
 app.options("*", cors(corsOptions));
+
+// const corsOptions = {
+//   origin: allowedOrigin,
+//   credentials: true,
+//   methods: ["GET", "POST", "OPTIONS"],
+//   allowedHeaders: ["Content-Type", "Authorization"],
+// };
+// app.use(cors(corsOptions));
+// app.options("*", cors(corsOptions));
 
 
 
