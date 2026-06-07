@@ -82,7 +82,7 @@ const [Error, setError] = useState([]);
     
     
         try {
-          const res = await fetch('https://local-community-dashboard.vercel.app', {
+          const res = await fetch('https://localcommunitydashboard.onrender.com/graphql', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' ,...authHeader},
             body: JSON.stringify(graphqlQuery),
