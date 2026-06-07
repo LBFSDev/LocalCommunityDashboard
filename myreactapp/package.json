@@ -1,4 +1,10 @@
 {
+    "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
   "homepage": "https://LBFSDev.github.io/LocalCommunityDashboard",
   "name": "my-react-app",
   "private": true,
