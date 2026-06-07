@@ -232,9 +232,9 @@ const app = express();
 //   credentials: true,
 // };
 
-const allowedOrigins = [
-  "https://local-community-dashboard.vercel.app"
-];
+// const allowedOrigins = [
+//   "https://local-community-dashboard.vercel.app"
+// ];
 
 const corsOptions = {
   origin: function (origin, callback) {
