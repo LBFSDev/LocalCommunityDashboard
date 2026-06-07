@@ -1,0 +1,346 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: #f3f6fb;
+  color: #1f2937;
+}
+
+/* Layout */
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background: #111827;
+  color: white;
+  padding: 30px;
+  position: fixed;
+  height: 100vh;
+}
+
+.logo span {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.menu {
+  list-style: none;
+  margin-top: 40px;
+}
+
+.menu li {
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.menu li:hover,
+.menu .active {
+  background: #1f2937;
+}
+
+/* Content */
+.content {
+  margin-left: 260px;
+  padding: 40px;
+  flex: 1;
+}
+
+/* Topnav */
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.user-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar.small {
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+}
+
+/* KPI */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.kpi-card {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+}
+
+.urgent-kpi {
+  border-left: 5px solid #dc2626;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 40px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Request Cards */
+.request-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.request-card {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+}
+
+.urgent-card {
+  border-top: 4px solid #dc2626;
+}
+
+/* Badges */
+.badge {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.approved {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.urgent {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* Buttons */
+.primary-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.outline-btn {
+  background: transparent;
+  border: 1px solid #d1d5db;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Bottom Grid */
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Glass Card */
+.glass-card {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+}
+
+/* Events */
+.event-item {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.event-date {
+  background: #2563eb;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Chat */
+.chat-preview {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.chat-preview:hover {
+  background: #f3f4f6;
+}
+
+.chat-user {
+  display: flex;
+  gap: 10px;
+}
+
+.time {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* GLOBAL SEARCH */
+.topnav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.global-search {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  width: 220px;
+}
+
+/* FILTER BAR */
+.filter-bar {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+.category-filter {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+/* CONTACT GRID */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.contact-card {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+
+.small-btn {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+
+
+
+
+
+
+
+
+/*side bar styling : */
+.MenuItem {
+    display: flex;            /* icon + text inline */
+    align-items: center;      /* vertically align emoji & text */
+    gap: 5px;                 /* spacing between icon and text */
+    font-size: 20px;
+    color: white;
+    cursor: pointer;          /* optional, for hover effect */
+}
+
+
+.MenuIcon {
+  display: inline-block;
+    font-size: 20px;          /* same as text */
+    line-height: 1;            /* normalize line height */
+    vertical-align: middle;    /* ensures perfect horizontal alignment */
+            }
+
+.MenuText {
+     display: inline-block;
+    line-height: 1;                  /* ensures text aligns with emoji */
+}
+
+.Logout{
+    font-size: 20px;
+    color: white;
+    border:none;
+    border-radius: 10px;
+    background-color:blue;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+  
+    cursor: pointer;  
+    margin-left: unset;
+}
+
+.Logout :hover{
+  border-radius: 10px;
+  border:none;
+      background-color:rgb(101, 101, 221);
+    
+}
+
+/*Outlet*/
+
+.outletpro{
+  position:fixed;
+}

@@ -1,0 +1,95 @@
+
+
+CREATE TYPE job_status AS ENUM (
+    'pending',
+    'urgent',
+    'in_progress',
+    'fulfilled',
+    'cancelled',
+    'closed'
+);
+
+
+CREATE TYPE role AS ENUM (
+    'user',
+    'admin'
+);
+
+
+
+
+
+create table users(
+name varchar(30) Not Null , 
+email varchar(100) primary key ,
+password varchar(20) not null,
+role role DEFAULT 'user',
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+create table chat(
+id serial primary key,
+user1 varchar(100), 
+user2 varchar(100) ,
+content varchar(200),
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+Constraint fk_u1 
+  foreign key (user1) references users(email),
+  Constraint fk_u2
+  foreign key (user2) references users(email)
+
+);
+
+
+
+create table requests(
+id serial primary key , 
+description varchar(300),
+reqby varchar(100), 
+title varchar(30),
+bonus varchar(5),
+jobtype varchar(30),
+worklocation varchar(20),
+location varchar(200),
+experience varchar(20),
+category varchar(30),
+status job_status DEFAULT 'pending',
+isurgent bool,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+constraint fk_em 
+  foreign key (reqby) references users(email)
+
+);
+
+
+
+
+create table Events(
+id serial primary key , 
+Title varchar(50),
+Description varchar(300),
+Location varchar(50),
+Date varchar(50),
+Organizer varchar(30),
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+
+create table contacts(
+user1 varchar(100), 
+firstname varchar(100),
+lastname varchar(100),
+gmail VARCHAR(100),
+ PRIMARY KEY (user1, gmail),
+Constraint fk_u1 
+  foreign key (user1) references users(email),
+  Constraint fk_u2
+  foreign key (gmail) references users(email)
+
+);
+
+
+
+

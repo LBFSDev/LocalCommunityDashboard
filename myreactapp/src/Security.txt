@@ -1,0 +1,58 @@
+Register
+   ↓
+Password hashed & saved
+   ↓
+Login
+   ↓
+Server validates credentials
+   ↓
+Server generates token/session
+   ↓
+User accesses protected pages
+   ↓
+Backend validates token
+   ↓
+Backend checks role
+   ↓
+Access granted or denied
+
+
+
+
+
+
+
+
+
+Login page
+   ↓
+fetch("/login")
+   ↓
+Receive token
+   ↓
+Store token
+   ↓
+navigate("/dashboard")
+   ↓
+Dashboard fetches protected data
+   ↓
+Backend validates token
+   ↓
+Data returned or rejected
+
+
+
+
+
+Best Current Structure For You
+Backend
+verifies email/password
+creates JWT
+returns JWT
+Frontend
+stores JWT
+sends JWT in Authorization header
+redirects with navigate()
+Protected Backend APIs
+verify JWT
+verify role
