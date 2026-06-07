@@ -221,11 +221,19 @@ type DeleteResponse {
 const app = express();
   // const allowedorigin=["http://localhost:5173", // React app for local host 
   //   "http://localhost:3000"];
-  const allowedorigin=["https://local-community-dashboard.vercel.app"];
-app.use(cors({
-origin :allowedorigin,
-  credentials: true
-}));
+//   const allowedorigin=["https://local-community-dashboard.vercel.app"];
+// app.use(cors({
+// origin :allowedorigin,
+//   credentials: true
+// }));
+
+const corsOptions = {
+  origin: "https://local-community-dashboard.vercel.app",
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 
 
