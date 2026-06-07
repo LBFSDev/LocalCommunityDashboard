@@ -36,7 +36,7 @@ const navigate = useNavigate();
   
   
       try {
-        const res = await fetch('http://localhost:4000/graphql', {
+        const res = await fetch('https://local-community-dashboard.vercel.app', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(graphqlQuery),
